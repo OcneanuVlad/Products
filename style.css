@@ -1,0 +1,119 @@
+body {
+  font-family: sans-serif;
+}
+body #productsContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 40px;
+  margin-top: 15vh;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+}
+body #productsContainer .product {
+  border: 2px solid black;
+  display: flex;
+  border-radius: 3%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+}
+body #productsContainer .product p {
+  margin: 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 2.5vw;
+  right: 2.5vw;
+  height: 8vh;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 2px solid black;
+  padding-bottom: 1.5vh;
+  background-color: white;
+}
+nav h3 {
+  margin: 0;
+  margin-left: 2vw;
+  font-size: 150%;
+}
+nav a {
+  margin-left: auto;
+}
+nav .button {
+  height: 20px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  border-radius: 5%;
+}
+nav .button:hover {
+  background-color: rgba(128, 128, 128, 0.345);
+  cursor: pointer;
+}
+
+#delete {
+  height: 43.5px;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+
+#delete:hover {
+  background-color: rgba(128, 128, 128, 0.345);
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 40px;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid black;
+}
+footer p {
+  font-size: 100%;
+}
+
+#container {
+  margin-top: 15vh;
+  margin-left: 6vw;
+  margin-right: 6vw;
+}
+#container #product_form {
+  display: flex;
+  flex-direction: column;
+}
+#container #product_form .row {
+  margin: 10px;
+  display: flex;
+}
+#container #product_form .row label {
+  width: 120px;
+}
+#container #product_form .row p {
+  margin: 0;
+  margin-left: 20px;
+  padding: 0;
+  color: red;
+}
+#container #product_form #submit {
+  position: relative;
+  width: 80px;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid black;
+  margin-top: 3vh;
+  border-radius: 5%;
+}
+#container #product_form #submit:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.345);
+}/*# sourceMappingURL=style.css.map */
