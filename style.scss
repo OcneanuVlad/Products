@@ -1,129 +1,180 @@
 body {
     font-family: sans-serif;
+    background-color: #f1e9e1;
 
-    #productsContainer {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-gap: 40px;
+    nav {
+        position: fixed;
+        top: 0;
+        left: 2.5vw;
+        right: 2.5vw;
+        height: 8vh;
+        display: flex;
+        align-items: flex-end;
+        border-bottom: 2px solid black;
+        padding-bottom: 1.5vh;
+    
+        h3 {
+            margin: 0;
+            margin-left: 2vw;
+            font-size: 150%;
+        }
+        a {
+            margin-left: auto;
+            font-size: 1em;
+        }
+        .button {
+            height: 20px;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #c9c3bf;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+            border-radius: 5%;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .button:hover{
+            background-color: #aba5a1;
+            cursor: pointer;
+        }
+        #cancel {
+            margin-right: 40px;
+        }
+    
+        #delete-product-btn {
+            height: 43.5px;
+            margin-left: 20px;
+            margin-right: 40px;
+        }
+        
+        #delete-product-btn:hover {
+            background-color: #aba5a1;
+            cursor: pointer;
+        }
+
+        #deleteError {
+            position: absolute;
+            right: 30px;
+            color: red;
+            top: 8vh;
+            font-size: 1.2em;
+        }
+    }
+    
+    #addContainer {
         margin-top: 15vh;
+        margin-left: 6vw;
+        margin-right: 6vw;
+        height: 71vh;
+    
+        #product_form {
+            display: flex;
+            flex-direction: column;
+    
+            .row {
+                margin: 10px;
+                display: flex;
+    
+                label {
+                    width: 120px;
+                }
+    
+                p {
+                    margin: 0;
+                    margin-left: 20px;
+                    padding: 0;
+                    color: red;
+                }
+            }
+    
+            #submit {
+                position: relative;
+                width: 80px;
+                height: 40px;
+                background-color: #c9c3bf;
+                border: 2px solid black;
+                margin-top: 3vh;
+                border-radius: 5%;
+                margin-left: 10px;
+                font-size: 0.8em;
+                font-weight: bold;
+
+            }
+            #submit:hover {
+                cursor: pointer;
+                background-color: #aba5a1;
+            }
+    
+            #typeSpace {
+    
+                .typeField {
+                    display: none;
+
+                    .description {
+                        margin-left: 10px;
+                        font-weight: bold;
+                        font-size: 1.2em;
+                    }
+                }
+    
+                .DVDField {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    #form {
+        min-height: 71vh;
+
+        #productsContainer {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 40px;
+            margin-top: 15vh;
+            margin-left: 2.5vw;
+            margin-right: 2.5vw;
+    
+            input {
+                margin-right: auto;
+                transform: scale(1.5);
+            }
+    
+            .product {
+                background-color: #c9c3bf;
+                border: 2px solid black;
+                overflow: hidden;
+                display: flex;
+                border-radius: 3%;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 10px;
+                padding-bottom: 30px;
+    
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    footer {
+        position: sticky;
+        margin-top: 40px;
         margin-left: 2.5vw;
         margin-right: 2.5vw;
-
-        .product {
-            border: 2px solid black;
-            display: flex;
-            border-radius: 3%;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 40px;
-
-            p {
-                margin: 0;
-            }
-        }
-    }
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 2.5vw;
-    right: 2.5vw;
-    height: 8vh;
-    display: flex;
-    align-items: flex-end;
-    border-bottom: 2px solid black;
-    padding-bottom: 1.5vh;
-    background-color: white;
-
-    h3 {
-        margin: 0;
-        margin-left: 2vw;
-        font-size: 150%;
-    }
-    a {
-        margin-left: auto;
-    }
-    .button {
-        height: 20px;
-        border: 2px solid black;
         display: flex;
+        justify-content: center;
         align-items: center;
-        background-color: transparent;
-        padding: 10px;
-        color: black;
-        text-decoration: none;
-        border-radius: 5%;
-    }
-    .button:hover{
-        background-color: rgba(128, 128, 128, 0.345);
-        cursor: pointer;
-    }
-}
-
-#delete {
-    height: 43.5px;
-    margin-left: 20px;
-    margin-right: 40px;
-}
-
-#delete:hover {
-    background-color: rgba(128, 128, 128, 0.345);
-    cursor: pointer;
-}
-
-footer {
-    margin-top: 40px;
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 2px solid black;
-
-    p {
-        font-size: 100%;
-    }
-}
-
-#container {
-    margin-top: 15vh;
-    margin-left: 6vw;
-    margin-right: 6vw;
-
-    #product_form {
-        display: flex;
-        flex-direction: column;
-
-        .row {
-            margin: 10px;
-            display: flex;
-
-            label {
-                width: 120px;
-            }
-
-            p {
-                margin: 0;
-                margin-left: 20px;
-                padding: 0;
-                color: red;
-            }
-        }
-
-        #submit {
-            position: relative;
-            width: 80px;
-            height: 40px;
-            background-color: transparent;
-            border: 2px solid black;
-            margin-top: 3vh;
-            border-radius: 5%;
-        }
-        #submit:hover {
-            cursor: pointer;
-            background-color: rgba(128, 128, 128, 0.345);
+        border-top: 2px solid black;
+    
+        p {
+            font-size: 100%;
         }
     }
+    
 }
