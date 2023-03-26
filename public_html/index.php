@@ -56,7 +56,7 @@ mysqli_close($conn);
     <nav>
         <h3>Product List</h3>
         <a class="button" href="add.php">ADD</a>
-        <input class="button" id="delete-product-btn" type="submit" name="delete" value="MASS-DELETE">
+        <input class="button" id="delete-product-btn" type="submit" name="delete" value="MASS DELETE">
         <p id="deleteError"><?php echo $error?></p>
     </nav>
 </form>

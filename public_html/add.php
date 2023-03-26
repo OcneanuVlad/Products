@@ -58,17 +58,17 @@ class furniture extends Product {
     public function __construct($sku, $name, $price, $height, $width, $length, $extra_fields =[]) {
         parent::__construct($sku, $name, $price, $extra_fields);
         $this->extra_fields['Dimension(CM)'] = $height . 'X' . $width . 'X' . $length;
-        print_r($extra_fields);
     }
 }
 
-$error = '';
+$errorSku = '';
+$errorName = '';
 if (isset($_POST['submit'])) {
 
     // check form
     if(!empty($_POST['sku'])){
-        if (!preg_match('/^[A-Z0-9]+$/',$_POST['sku'])) {
-            $error = 'SKU needs to be uppercase letters and numbers';
+        if (!preg_match('/^[a-zA-Z0-9]+$/',$_POST['sku'])) {
+            $errorSku = 'SKU needs to be letters and/or numbers';
         }
     // check if SKU is unique
         $sku = $_POST['sku'];
@@ -76,11 +76,17 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         if ($row['count'] != 0) {
-            $error = 'SKU needs to be unique';
+            $errorSku = 'SKU needs to be unique';
+        }
+    }
+    
+    if(!empty($_POST['name'])){
+        if (!preg_match('/^[a-zA-Z0-9 ]+$/',$_POST['name'])) {
+            $errorName = 'Name needs to be letters and/or numbers';
         }
     }
 
-    if($error === '') {
+    if($errorSku === '' && $errorName === '') {
         // create the product object
         $inputs = array();
         foreach ($_POST as $key => $value) {
@@ -103,8 +109,6 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
 <?php include('../Templates/header.php'); ?>
 <nav>
   <h3>Add Product</h3>
@@ -116,11 +120,12 @@ if (isset($_POST['submit'])) {
         <div class="row">
             <label>SKU:</label>
             <input id="sku" type="text" name="sku" required>
-            <p><?php echo $error ?></p>
+            <p><?php echo $errorSku ?></p>
         </div>
         <div class="row">
             <label>Name:</label>
             <input id="name" type="text" name="name" required>
+            <p><?php echo $errorName ?></p>
         </div>
         <div class="row">
             <label>Price($):</label>
@@ -165,10 +170,9 @@ if (isset($_POST['submit'])) {
                 <p class="description">Please, provide dimensions</p>
             </div>
         </section>
-        <input id="submit" type="submit" name="submit" value="SAVE">
+        <input id="submit" type="submit" name="submit" value="Save">
     </form>
 </section>
 
-<script type="text/javascript" src="../script.js"></script>
-<?php include('../templates/footer.php'); ?>
-</html>
+<script type="text/javascript" src="Frontend/script.js"></script>
+<?php include('../Templates/footer.php'); ?>
