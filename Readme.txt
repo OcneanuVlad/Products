@@ -1,2 +1,2 @@
-This is a small web application which lets you add and delete products.
+This is a basic CRUD application.
 It uses PHP and MySql.
